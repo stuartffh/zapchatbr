@@ -1,100 +1,95 @@
-import Image from "next/image";
+'use client';
+
+import { motion } from 'framer-motion';
+import { a } from 'framer-motion/client';
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center">
+      {/* Hero Section */}
+      <header className="w-full bg-gradient-to-r from-blue-700 to-purple-700 text-white py-20 text-center shadow-lg">
+        <motion.h1 
+          initial={{ opacity: 0, y: -20 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.8 }}
+          className="text-5xl font-extrabold"
+        >
+          Transforme Seu Negócio com Automação Inteligente
+        </motion.h1>
+        <p className="mt-4 text-lg opacity-80">Soluções inovadoras para otimizar seus processos e aumentar sua produtividade.</p>
+      </header>
+      
+      {/* Serviços */}
+      <section className="py-20 max-w-5xl text-center">
+        <h2 className="text-4xl font-bold text-blue-400">Nossos Serviços</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+          {['Automação Inteligente', 'Otimização de Processos', 'Integrações Personalizadas', 'Gestão de Dados', 'Segurança Digital'].map((service, index) => (
+            <motion.div 
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2 }}
+              className="p-6 bg-gray-800 text-white shadow-lg rounded-xl border border-gray-700 hover:border-blue-400 hover:shadow-2xl"
+            >
+              <h3 className="text-xl font-semibold text-blue-300">{service}</h3>
+              <p className="mt-2 opacity-80">Soluções personalizadas para maximizar sua produtividade e segurança.</p>
+            </motion.div>
+          ))}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </section>
+      
+      {/* Benefícios */}
+      <section className="bg-gradient-to-r from-purple-700 to-blue-700 text-white py-16 w-full text-center shadow-lg">
+        <h2 className="text-4xl font-bold">Por que Automatizar?</h2>
+        <p className="mt-4 max-w-3xl mx-auto opacity-90">Reduza custos, elimine tarefas repetitivas, melhore a segurança digital e foque no crescimento do seu negócio.</p>
+      </section>
+      
+      {/* Depoimentos */}
+      <section className="py-16 text-center max-w-5xl">
+        <h2 className="text-4xl font-bold text-blue-400">O Que Nossos Clientes Dizem</h2>
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+          {["A automação aumentou nossa produtividade", "A integração personalizada otimizou nossos processos e reduziu custos"].map((testimonial, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.3 }}
+              className="p-6 bg-gray-800 text-white rounded-xl border border-gray-700 hover:border-blue-400 hover:shadow-2xl"
+            >
+              <p className="italic">"{testimonial}"</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+      
+      {/* Chamada Final */}
+      <footer className="py-16 text-center">
+        <h2 className="text-2xl font-bold text-blue-300">Pronto para transformar sua empresa?</h2>
+        <p className="mt-2 opacity-80">Entre em contato e descubra como podemos ajudar.</p>
+        <div className="mt-6 flex flex-col gap-4">
+          <motion.a 
+            whileHover={{ scale: 1.1 }}
+            href="https://wa.me/5516997718996"
+            target="_blank"
+            className="bg-green-500 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-green-400"
+          >
+            Fale Conosco pelo WhatsApp
+          </motion.a>
+          <motion.a 
+            whileHover={{ scale: 1.05 }}
+            href="mailto:roberto@zapchatbr.com"
+            className="bg-blue-600 text-white font-semibold py-2 px-5 rounded-lg shadow-md hover:bg-blue-500"
+          >
+            Email: Roberto
+          </motion.a>
+          <motion.a 
+            whileHover={{ scale: 1.05 }}
+            href="mailto:rafaelcarvalho@zapchatbr.com"
+            className="bg-blue-600 text-white font-semibold py-2 px-5 rounded-lg shadow-md hover:bg-blue-500"
+          >
+            Email: Rafael
+          </motion.a>
+        </div>
       </footer>
     </div>
   );
