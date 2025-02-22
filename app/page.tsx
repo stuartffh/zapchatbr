@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion} from 'framer-motion';
 
 export default function Home() {
   return (
@@ -47,7 +47,10 @@ export default function Home() {
       <section className="py-16 text-center max-w-5xl">
         <h2 className="text-4xl font-bold text-blue-400">O Que Nossos Clientes Dizem</h2>
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
-          {["A automação aumentou nossa produtividade", "A integração personalizada otimizou nossos processos e reduziu custos"].map((testimonial, index) => (
+          {[
+            "A automação aumentou nossa produtividade",
+            "A integração personalizada otimizou nossos processos e reduziu custos"
+          ].map((testimonial, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
@@ -55,10 +58,11 @@ export default function Home() {
               transition={{ delay: index * 0.3 }}
               className="p-6 bg-gray-800 text-white rounded-xl border border-gray-700 hover:border-blue-400 hover:shadow-2xl"
             >
-              <p className="italic">{testimonial}</p>
+              <p className="italic">&quot;{testimonial}&quot;</p>
             </motion.div>
           ))}
         </div>
+
       </section>
       
       {/* Chamada Final */}
@@ -79,14 +83,14 @@ export default function Home() {
             href="mailto:roberto@zapchatbr.com"
             className="bg-blue-600 text-white font-semibold py-2 px-5 rounded-lg shadow-md hover:bg-blue-500"
           >
-            Email: Roberto
+            Roberto
           </motion.a>
           <motion.a 
             whileHover={{ scale: 1.05 }}
             href="mailto:rafaelcarvalho@zapchatbr.com"
             className="bg-blue-600 text-white font-semibold py-2 px-5 rounded-lg shadow-md hover:bg-blue-500"
           >
-            Email: Rafael
+            Rafael
           </motion.a>
         </div>
       </footer>
