@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { a } from 'framer-motion/client';
 
 export default function Home() {
   return (
@@ -56,7 +55,7 @@ export default function Home() {
               transition={{ delay: index * 0.3 }}
               className="p-6 bg-gray-800 text-white rounded-xl border border-gray-700 hover:border-blue-400 hover:shadow-2xl"
             >
-              <p className="italic">"{testimonial}"</p>
+              <p className="italic">{testimonial}</p>
             </motion.div>
           ))}
         </div>
