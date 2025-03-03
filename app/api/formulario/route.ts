@@ -3,10 +3,6 @@ import { Pool } from 'pg';
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const LRU = require('lru-cache');
 
-
-
-
-
 // Configuração do banco de dados
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
