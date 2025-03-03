@@ -29,7 +29,7 @@ export default function RootLayout({
         <nav className="bg-gray-800 p-4">
           <div className="container mx-auto flex justify-between">
             <Link href="/" className="text-white font-bold text-lg">ZapChatBR</Link>
-            <Link href="/formulario" className="text-blue-300 hover:text-blue-500">Cadastro</Link>
+            <Link href="/dashboard" className="text-blue-300 hover:text-blue-500">Cadastro</Link>
           </div>
         </nav>
         {children}
