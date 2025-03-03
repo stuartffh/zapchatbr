@@ -1,7 +1,9 @@
 import { NextResponse } from 'next/server';
 import { Pool } from 'pg';
 // eslint-disable-next-line @typescript-eslint/no-require-imports
-const LRU = require('lru-cache');
+const LRUCache = require('lru-cache');
+
+
 
 // Configuração do banco de dados
 const pool = new Pool({
@@ -10,10 +12,11 @@ const pool = new Pool({
 });
 
 // Configuração do rate limit (máximo de 5 tentativas a cada 15 minutos por IP)
-const rateLimit = new LRU({
+const rateLimit = new LRUCache({
   max: 100, // Máximo de IPs armazenados
   ttl: 15 * 60 * 1000, // 15 minutos (tempo de expiração dos registros)
 });
+
 
 // Função para validar CPF
 const validarCPF = (cpf: string) => {
