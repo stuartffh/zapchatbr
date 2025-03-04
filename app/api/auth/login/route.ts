@@ -37,7 +37,12 @@ export async function POST(request: Request) {
 
     // Configura o cookie no NextResponse
     const response = NextResponse.json({ message: 'Login bem-sucedido' });
-    response.cookies.set('token', token, { httpOnly: true, path: '/', secure: true, sameSite: 'strict' });
+    response.cookies.set('token', token, { 
+      httpOnly: true, 
+      path: '/', 
+      secure: process.env.NODE_ENV === 'production', 
+      sameSite: 'lax',
+    });
 
     return response;
   } catch (error) {
