@@ -16,6 +16,7 @@ export default function Login() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, senha }),
+      credentials: 'include', // Envia os cookies
     });
 
     if (!res.ok) {
@@ -24,7 +25,7 @@ export default function Login() {
       return;
     }
 
-    router.push('/dashboard');
+    router.push('/dashboard'); // Redireciona para o dashboard após o login
   };
 
   return (
